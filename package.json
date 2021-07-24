@@ -1,0 +1,51 @@
+{
+  "name": "oauth2join",
+  "main": "index.js",
+  "scripts": {
+    "start": "sirv public --no-clear"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KeepSOBP/Oauth2Join.git"
+  },
+  "author": "KeepSOBP <osu@kakao.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/KeepSOBP/Oauth2Join#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "simple-oauth2": "^4.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.31.0"
+  },
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "env": {
+      "node": true,
+      "es2021": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 12
+    },
+    "rules": {
+      "indent": [
+        "error",
+        4,
+        {
+          "SwitchCase": 1
+        }
+      ],
+      "quotes": [
+        "error",
+        "double"
+      ],
+      "semi": [
+        "error",
+        "never"
+      ]
+    }
+  }
+}
