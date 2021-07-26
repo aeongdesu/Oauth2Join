@@ -32,7 +32,7 @@ server.get("/callback", async (req, res) => {
         code: req.query.code,
         redirect_uri: process.env.REDIRECT_URL,
         grant_type: "authorization_code",
-        scope: "identify guilds.join email"
+        scope: "identify guilds.join"
     })
 
     const accessuser = await fetch("https://discord.com/api/oauth2/token", {
