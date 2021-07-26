@@ -46,7 +46,7 @@ server.get("/callback", async (req, res) => {
         return res.send("Error! please try again.")
     }
     const access_json = await accessuser.json()
-    const getUserID = await fetch("https://discordapp.com/api/users/@me", {
+    const getUserID = await fetch("https://discord.com/api/users/@me", {
         headers: {
             "Authorization": `Bearer ${access_json.access_token}`
         }
