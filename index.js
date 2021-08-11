@@ -62,7 +62,9 @@ server.get("/callback", async (req, res) => {
             access_token: access_json.access_token
         }),
     })
-    if (await addMember.status === 201 || await addMember.status === 204) return res.render(`${__dirname}/web/success.html`)
+    if (await addMember.status === 201 || await addMember.status === 204) return res.render(`${__dirname}/web/success.html`,{
+        server_id: process.env.SERVER_ID
+    })
     return res.send("Error! please try again.")
 })
 
