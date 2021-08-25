@@ -20,7 +20,7 @@ server.use(express.json())
 server.get("/", (req, res) => {
     const url = client.authorizeURL({
         redirect_uri: process.env.REDIRECT_URL,
-        scope: "identify guilds.join email"
+        scope: "identify guilds.join"
     })
     return res.redirect(url)
 })
