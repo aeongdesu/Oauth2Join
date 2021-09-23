@@ -1,8 +1,9 @@
 {
   "name": "oauth2join",
   "main": "index.js",
+  "_type": "module",
   "scripts": {
-    "start": "sirv public --no-clear"
+    "start": "node index.cjs"
   },
   "repository": {
     "type": "git",
@@ -15,7 +16,7 @@
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "2.6.2",
     "simple-oauth2": "^4.2.0"
   },
   "devDependencies": {
@@ -28,7 +29,8 @@
       "es2021": true
     },
     "parserOptions": {
-      "ecmaVersion": 12
+      "ecmaVersion": 12,
+      "sourceType": "module"
     },
     "rules": {
       "indent": [

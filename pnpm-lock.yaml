@@ -5,14 +5,14 @@ specifiers:
   ejs: ^3.1.6
   eslint: ^7.32.0
   express: ^4.17.1
-  node-fetch: ^2.6.1
+  node-fetch: 2.6.2
   simple-oauth2: ^4.2.0
 
 dependencies:
   dotenv: 10.0.0
   ejs: 3.1.6
   express: 4.17.1
-  node-fetch: 2.6.1
+  node-fetch: 2.6.2
   simple-oauth2: 4.2.0
 
 devDependencies:
@@ -858,8 +858,8 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /node-fetch/2.6.1:
-    resolution: {integrity: sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==}
+  /node-fetch/2.6.2:
+    resolution: {integrity: sha512-aLoxToI6RfZ+0NOjmWAgn9+LEd30YCkJKFSyWacNZdEKTit/ZMcKjGkTRo8uWEsnIb/hfKecNPEbln02PdWbcA==}
     engines: {node: 4.x || >=6.0.0}
     dev: false
 
