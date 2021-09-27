@@ -3,7 +3,7 @@
   "main": "index.js",
   "_type": "module",
   "scripts": {
-    "start": "node index.cjs"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
