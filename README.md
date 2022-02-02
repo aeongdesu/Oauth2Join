@@ -10,6 +10,6 @@ Protect your discord server!
 [discord.deta.dev](https://discord.deta.dev) - Joins my discord server!!
 
 ## LICENSE
-Copyright © 2021 KeepSOBP <osu@kakao.com>
+Copyright © 2022 aeongdesu <osu@kakao.com>
 
 This project is [MIT](LICENSE) licensed.
