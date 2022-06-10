@@ -1,0 +1,13 @@
+name: Deploy to Deta
+on: push
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: BogDAAAMN/deta-deploy-action@v1.0.1
+        with:
+          deta-access-token: ${{ secrets.DETA_TOKEN }}
+          deta-name: "Oauth2Join" 
+          deta-project: "discord_server" #Optional: Deta project name https://docs.deta.sh/docs/cli/commands/#deta-clone
