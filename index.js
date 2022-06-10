@@ -43,7 +43,7 @@ server.get("/callback", async (req, res) => {
         }
     })
     if (accessuser.status !== 200) {
-        return res.send("Error! please try again.")
+        return res.send("error: failed to get user")
     }
     const access_json = await accessuser.json()
     const getUserID = await fetch("https://discord.com/api/users/@me", {
@@ -65,10 +65,10 @@ server.get("/callback", async (req, res) => {
     if (await addMember.status === 201 || await addMember.status === 204) return res.render(`${__dirname}/web/success.html`,{
         server_id: process.env.SERVER_ID
     })
-    return res.send("Error! please try again.")
+    return res.send("error: failed to invite server")
 })
 
-if (process.env.test === "true") {
+if (!process.env.DETA_RUNTIME) {
     server.listen(8080, () => {
         console.log("Example app listening at http://localhost:8080")
     })
