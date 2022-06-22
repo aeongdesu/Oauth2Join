@@ -69,7 +69,7 @@ server.get("/callback", async (req, res) => {
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         },
-        body: JSON.stringify({
+        body: new URLSearchParams({
             client_id: process.env.CLIENT_ID,
             client_secret: process.env.CLIENT_SECRET,
             token: access_json.access_token
