@@ -9,18 +9,18 @@
     "type": "git",
     "url": "git+https://github.com/KeepSOBP/Oauth2Join.git"
   },
-  "author": "KeepSOBP <osu@kakao.com>",
+  "author": "aeongdesu <osu@kakao.com>",
   "license": "MIT",
-  "homepage": "https://github.com/KeepSOBP/Oauth2Join#readme",
+  "homepage": "https://github.com/aeongdesu/Oauth2Join#readme",
   "dependencies": {
-    "dotenv": "^10.0.0",
-    "ejs": "^3.1.6",
-    "express": "^4.17.1",
-    "node-fetch": "2.6.2",
-    "simple-oauth2": "^4.2.0"
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "node-fetch": "v2",
+    "simple-oauth2": "^4.3.0"
   },
   "devDependencies": {
-    "eslint": "^7.32.0"
+    "eslint": "^8.18.0"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",

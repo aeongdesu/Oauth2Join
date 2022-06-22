@@ -35,24 +35,25 @@ server.get("/callback", async (req, res) => {
         scope: "identify guilds.join"
     })
 
-    const accessuser = await fetch("https://discord.com/api/oauth2/token", {
+    const getToken = await fetch("https://discord.com/api/oauth2/token", {
         method: "POST",
         body: data,
         headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         }
     })
-    if (accessuser.status !== 200) {
-        return res.send("error: failed to get user")
+    if (getToken.status !== 200) {
+        return res.send("error: failed to get token")
     }
-    const access_json = await accessuser.json()
+    const access_json = await getToken.json()
     const getUserID = await fetch("https://discord.com/api/users/@me", {
         headers: {
             "Authorization": `Bearer ${access_json.access_token}`
         }
     })
+    if (getUserID.status !== 200) return res.send("error: failed to get user")
     const userID_json = await getUserID.json()
-    const addMember = await fetch(`https://discord.com/api/guilds/${process.env.SERVER_ID}/members/${userID_json.id}`, {
+    const addMember = await fetch(`https://discord.com/api/guilds/${process.env.SERVER_ID}/members/${userID_json.user.id}`, {
         method: "PUT",
         headers: {
             "Authorization": `Bot ${process.env.BOT_TOKEN}`,
@@ -62,10 +63,23 @@ server.get("/callback", async (req, res) => {
             access_token: access_json.access_token
         }),
     })
+    // revoke for safety?
+    await fetch("https://discord.com/api/oauth2/token/revoke", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: JSON.stringify({
+            client_id: process.env.CLIENT_ID,
+            client_secret: process.env.CLIENT_SECRET,
+            token: access_json.access_token
+        })
+    })
+
     if (await addMember.status === 201 || await addMember.status === 204) return res.render(`${__dirname}/web/success.html`,{
         server_id: process.env.SERVER_ID
     })
-    return res.send("error: failed to invite server")
+    else return res.send("error: failed to invite server")
 })
 
 if (!process.env.DETA_RUNTIME) {
