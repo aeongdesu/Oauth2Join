@@ -53,7 +53,7 @@ server.get("/callback", async (req, res) => {
     })
     if (getUserID.status !== 200) return res.send("error: failed to get user")
     const userID_json = await getUserID.json()
-    const addMember = await fetch(`https://discord.com/api/guilds/${process.env.SERVER_ID}/members/${userID_json.user.id}`, {
+    const addMember = await fetch(`https://discord.com/api/guilds/${process.env.SERVER_ID}/members/${userID_json.id}`, {
         method: "PUT",
         headers: {
             "Authorization": `Bot ${process.env.BOT_TOKEN}`,
@@ -63,7 +63,7 @@ server.get("/callback", async (req, res) => {
             access_token: access_json.access_token
         }),
     })
-    // revoke for safety?
+    // revoke for safety
     await fetch("https://discord.com/api/oauth2/token/revoke", {
         method: "POST",
         headers: {
